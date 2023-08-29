@@ -7,6 +7,11 @@ export const colours: string[] = [
   "purple",
 ];
 
+export interface OptionsInfo {
+  colour: string;
+  selected: boolean;
+}
+
 export function createCode(): string[] {
   const shuffledColours = [...colours];
   for (let i = shuffledColours.length - 1; i > 0; i--) {
@@ -34,15 +39,58 @@ export function checkCombo(guess: string[], code: string[]): string[] {
   return output;
 }
 
-export const guessesBoard = [
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]},
-  {row: ["", "", "", ""], pegs: ["", "", "", ""]}
+export interface GuessBoardInfo {
+  row: string[];
+  pegs: string[];
+}
+export const guessesBoard: GuessBoardInfo[] = [
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
+  {
+    row: ["white", "white", "white", "white"],
+    pegs: ["grey", "grey", "grey", "grey"],
+  },
 ];
+
+export const shuffleArray = (array: string[]) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
